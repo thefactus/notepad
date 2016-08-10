@@ -1,0 +1,4 @@
+= form_for @note, remote: true do |f|
+  .form-group
+    = f.trix_editor :body, class: '', onchange: "alert('eoq')"
+  = f.submit 'Save', class: 'btn btn-primary hidden', id: 'save'

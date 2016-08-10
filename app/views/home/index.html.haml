@@ -1,0 +1,8 @@
+%h1 New Notepad
+
+- if @note.errors.any?
+  .alert.alert-danger
+    - @note.errors.full_messages.each do |msg|
+      = msg
+
+= render 'notes/form'

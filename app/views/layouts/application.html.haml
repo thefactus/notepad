@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Notepad
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container{:style => "padding-top: 10px"}
+      %br
+      - if notice.present?
+        .alert.alert-info
+          = notice
+      - if alert.present?
+        .alert.alert-danger
+          = alert
+      = yield
+
+      %hr/
+      %footer
+        %p Copyright © Notepad
+        = javascript_include_tag 'save_note', 'data-turbolinks-track' => true
