@@ -11,7 +11,7 @@ class NotesController < ApplicationController
   def show
     @note = Note.find_by_name(params[:name])
     unless @note
-      @note = Note.new(name: params[:name])
+      @note = current_user.notes.new(name: params[:name])
       @note.save
       render 'show'
     end

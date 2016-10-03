@@ -7,7 +7,7 @@ function save_note() {
       $('#save').click();
       lastNote = new_note;
     }
-  },3000);
+  }, 3000);
 }
 
 save_note();
