@@ -8,7 +8,21 @@
     = csrf_meta_tags
   %body
     .container{:style => "padding-top: 10px"}
-      %br
+      %nav.navbar.navbar-default
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to 'Notepad', root_url, class: 'navbar-brand'
+        #navbar.navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            = render 'home/left_menu'
+          %ul.nav.navbar-nav.navbar-right
+            = render 'devise/menu/login_items'
+        / /.nav-collapse
+
       - if notice.present?
         .alert.alert-info
           = notice
@@ -17,7 +31,6 @@
           = alert
       = yield
 
-      %hr/
       %footer
         %p Copyright © Notepad
         = javascript_include_tag 'save_note', 'data-turbolinks-track' => true

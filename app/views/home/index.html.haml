@@ -4,23 +4,29 @@
   .alert.alert-danger
     - @note.errors.full_messages.each do |msg|
       = msg
-
-= render 'notes/form'
+.row
+  .col-lg-6
+    = render 'notes/form'
 
 %h1 My notepads
 
 %table.table
-  - @notes.all.each_with_index do |note, index|
+  - @notes.each_with_index do |note, index|
     %tr
       %td
         = link_to note.name, note.name
       %td
+        = note.created_at
       %td
         .btn-group.pull-right
           %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
             Actions
             %span.caret
           %ul.dropdown-menu
+            %li
+              = link_to '#', class: 'dropdown-item' do
+                %span.glyphicon.glyphicon-eye-open
+                Snapshot
             %li
               = link_to '#', class: 'dropdown-item' do
                 %span.glyphicon.glyphicon-download-alt

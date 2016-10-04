@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
     @note = current_user.notes.new
-    @notes = current_user.notes
+    @notes = current_user.notes.decorate
   end
 end

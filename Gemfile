@@ -17,6 +17,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'trix'
+gem 'draper'
 
 group :development, :test do
   gem 'byebug'

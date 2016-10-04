@@ -1,3 +1,6 @@
+%h2
+  = @note.name
+
 = form_for @note, remote: true do |f|
   .form-group
     = f.trix_editor :body
